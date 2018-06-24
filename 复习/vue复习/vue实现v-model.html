@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <test v-model="price"></test>
+        <test :value="price" @input="price = arguments[0]"></test>
+
+        <my-checkbox v-model="price"></my-checkbox>
+        <h1>{{price}}</h1>
+    </div>
+
+
+    <script src="https://cdn.bootcss.com/vue/2.3.0/vue.js"></script>
+    <script>
+        //ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上
+        //给组件添加 v-model 属性时，默认会把 value 作为组件的属性，然后把 'input' 值作为给组件绑定事件时的事件名
+        Vue.component('test', {
+            template: `
+            <span style='width=200px;height=30px'>
+                <input ref="input" :value="value" @input="$emit('input',$event.target.value)">              
+            </span>
+             `,
+            props: ['value'],
+        })
+
+        //多选框
+        Vue.component('my-checkbox', {
+            template: `
+            <input type="checkbox" @change="$emit('balabala', $event.target.checked)"
+            :checked="checked"/>`,
+    //    这里就不用 input 了，而是 balabala
+            props: ['checked'], //这里就不用 value 了，而是 checked
+            model: { // model选项来指定
+                prop: 'checked',
+                event: 'balabala'
+            },
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                price: 100,
+            },
+            methods: {
+
+            }
+        })
+
+
+
+
+
+    </script>
+</body>
+
+</html>
