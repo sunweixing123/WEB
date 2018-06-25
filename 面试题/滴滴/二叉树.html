@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var tree = {
+            value: 1,
+            left: {
+                value: 2,
+                left: {
+                    value: 4,
+                    left:{
+                        value:6,
+                    },
+                    right: {
+                        value: 7,
+                        left: {
+                            value:8,
+                        },
+                        right:{
+                            value: 9,
+                        }
+                    }
+                },
+                right: {
+                    value:5
+                }
+            },
+            right:{
+                value: 3
+            }
+        }
+//广度优先遍历
+        var foo = function (node) {
+            if (!node) {
+                throw new Error('Empty Tree')
+            }
+            var que = [];
+            que.push(node)
+            while (que.length !== 0) {
+                node = que.shift();//删除首项，并返回被删除的首项  数组变为除去首项后的数组
+                console.log(node.value);//返回的首项的value
+                if (node.left) que.push(node.left);//
+                if (node.right) que.push(node.right);//把左右未输出的项添加进数组
+                console.log(que);     
+                console.log(node);    
+            }
+        }
+        foo(tree);
+
+//先序遍历 根左右
+        // var foo1 = function(node){
+        //     if(node){
+        //         console.log(node.value);
+        //         foo1(node.left);          
+        //         foo1(node.right);
+        //     }
+        // }
+        // foo1(tree);
+
+
+        // var arr = [];
+        // var arr2 = [];
+        // arr.push(tree);
+        // var arr1 = arr.shift();
+        // console.log(arr1);
+        // arr2 = arr1;
+        // console.log(arr2); 
+        // var arr3 = arr2.shift();
+        // console.log(arr3);  
+
+        var obj = {
+            'name':'zs',
+            'age' : 15,
+            'school' : 'nongda',
+            'hobby': 'football'
+        }
+        var arr = [1,2,5,4,6,7];
+        // obj.shift();
+        // console.log(obj);
+        console.log(arr.shift());
+        console.log(arr);
+</script>
+</body>
+
+</html>
