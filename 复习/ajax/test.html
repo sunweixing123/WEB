@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        xmlhttp = null;
+        if (window.XMLHttpRequest) {// code for Firefox, Opera, IE7, etc.
+            xmlhttp = new XMLHttpRequest();           
+        }
+        // xmlhttp = null;
+        // if (window.XMlHttpRequest) {
+        //     xmlhttp = new XMLHttpRequest();
+        // }
+        if (xmlhttp != null) {
+            xmlhttp.onreadystatechange = change();
+            xmlhttp.open("GET", '../ajax/data.json', true);
+            xmlhttp.send(null);
+        }
+
+
+        function change() {
+            // if (xmlhttp.readystate == 4 && xmlhttp.readystate == 200) {
+            //     console.log('success');
+            // } else {
+            //     console.log('error');
+            // }
+            if (xmlhttp.readystate == 4 && xmlhttp.readystate == 200) {
+                console.log('success');
+            } else {
+                console.log('error');
+            }
+        }
+
+        // xmlhttp = null;
+        // if (window.XMLHttpRequest) {// code for Firefox, Opera, IE7, etc.
+        //     xmlhttp = new XMLHttpRequest();
+        // }
+
+        // if (xmlhttp != null) {
+
+        //     xmlhttp.onreadystatechange = change();
+        //     xmlhttp.open('GET', '../data.json', true);
+        //     xmlhttp.send();
+        // }
+
+        // function change() {
+        //     if (xmlhttp.readystate == 4 && xmlhttp.readystate == 200) {
+        //         console.log('success');
+        //     } else {
+        //         console.log('error');
+        //     }
+
+        // }
+
+
+        // xmlhttp = null;
+        // if (window.XMLHttpRequest) {// code for Firefox, Opera, IE7, etc.
+        //     xmlhttp = new XMLHttpRequest();
+        // }
+
+        // if (xmlhttp != null) {
+
+        //     xmlhttp.onreadystatechange = change();
+        //     xmlhttp.open('GET', '../data.json', true);
+        //     xmlhttp.send();
+        // }
+
+        // function change () {
+        //         if (xmlhttp.readystate == 4 && xmlhttp.readystate == 200) {
+        //             console.log('success');
+        //         } else {
+        //             console.log('error');
+        //         }
+
+        //     }
+
+
+//  
+//         xmlhttp = null;
+//         if (window.XMLHttpRequest) {// code for Firefox, Opera, IE7, etc.
+//             xmlhttp = new XMLHttpRequest();
+//         }
+//         else if (window.ActiveXObject) {// code for IE6, IE5
+//             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//         }
+        // if (xmlhttp != null) {
+        //     xmlhttp.onreadystatechange = state_Change;
+        //     xmlhttp.open("GET", '../data.json', true);
+        //     xmlhttp.send(null);
+        // }
+        // else {
+        //     alert("Your browser does not support XMLHTTP.");
+        // }
+
+        // function state_Change() {
+        //     if (xmlhttp.readyState == 4) {// 4 = "loaded"
+        //         if (xmlhttp.status == 200) {// 200 = "OK"
+        //             document.getElementById('T1').innerHTML = xmlhttp.responseText;
+        //         }
+        //         else {
+        //             alert("Problem retrieving data:" + xmlhttp.statusText);
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
